@@ -7,6 +7,24 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Day 1 - Brandon P Martin - JavaScript 30</title>
 
+  <link rel="apple-touch-icon" sizes="57x57" href="../../favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="../../favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="../../favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="../../favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="../../favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="../../favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="../../favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="../../favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../../favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="../../favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon/favicon-16x16.png">
+  <link rel="manifest" href="../../favicon/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="../../favicon/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
   <style>
     * {
       box-sizing: border-box;
@@ -91,9 +109,23 @@
       float: left;
     }
 
+    #day-01-wrap .key.synth {
+      width: 100%;
+    }
+
     #day-01-wrap kbd {
       display: block;
       font-size: 2rem;
+    }
+
+    #day-01-wrap .synth kbd {
+      display: inline-block;
+      width: 9%;
+      max-width: 30px;
+    }
+
+    #day-01-wrap .synth .sound {
+      display: block;
     }
 
     #day-01-wrap .triple {
@@ -124,13 +156,26 @@
     </h1>
 
     <div class="keys">
-      <div data-key="87" class="key triple" onclick="playSound(87)">
-        <kbd>W</kbd>
+      <div data-key="70" class="key triple" onclick="playSound(70)">
+        <kbd>F</kbd>
         <span class="sound">openhat</span>
       </div>
-      <div data-key="73" class="key triple" onclick="playSound(73)">
-        <kbd>I</kbd>
+      <div data-key="72" class="key triple" onclick="playSound(72)">
+        <kbd>H</kbd>
         <span class="sound">ride</span>
+      </div>
+      <div class="key synth" onclick="playToneScale()">
+        <kbd>Q</kbd>
+        <kbd>W</kbd>
+        <kbd>E</kbd>
+        <kbd>R</kbd>
+        <kbd>T</kbd>
+        <kbd>Y</kbd>
+        <kbd>U</kbd>
+        <kbd>I</kbd>
+        <kbd>O</kbd>
+        <kbd>P</kbd>
+        <span class="sound">synth</span>
       </div>
       <div data-key="65" class="key single" onclick="playSound(65)">
         <kbd>A</kbd>
@@ -156,6 +201,30 @@
         <kbd>L</kbd>
         <span class="sound">tink</span>
       </div>
+      <!-- <div data-key="20" class="key single" onclick="playSound(20)">
+        <kbd>Caps</kbd>
+        <span class="sound">custom</span>
+      </div>
+      <div data-key="88" class="key single" onclick="playSound(88)">
+        <kbd>X</kbd>
+        <span class="sound">custom</span>
+      </div>
+      <div data-key="67" class="key single" onclick="playSound(67)">
+        <kbd>C</kbd>
+        <span class="sound">custom</span>
+      </div>
+      <div data-key="78" class="key single" onclick="playSound(78)">
+        <kbd>N</kbd>
+        <span class="sound">custom</span>
+      </div>
+      <div data-key="77" class="key single" onclick="playSound(77)">
+        <kbd>M</kbd>
+        <span class="sound">custom</span>
+      </div>
+      <div data-key="186" class="key single" onclick="playSound(186)">
+        <kbd>;</kbd>
+        <span class="sound">custom</span>
+      </div> -->
       <div data-key="32" class="key wide" onclick="playSound(32)">
         <kbd>Space</kbd>
         <span class="sound">kick</span>
@@ -167,21 +236,28 @@
 
     <a href="../../index.html" id="home-link">Go Back Home</a>
 
-    <audio data-key="65" id="key65" src="https://cdn.glitch.com/b10f4528-cf24-4eac-9dd3-ee827ac19144%2Fday01-clap.wav?1533243022622"></audio>
-    <audio data-key="83" id="key83" src="https://cdn.glitch.com/b10f4528-cf24-4eac-9dd3-ee827ac19144%2Fday01-hihat.wav?1533243022756"></audio>
-    <audio data-key="32" id="key32" src="https://cdn.glitch.com/b10f4528-cf24-4eac-9dd3-ee827ac19144%2Fday01-kick.wav?1533243022832"></audio>
-    <audio data-key="87" id="key87" src="https://cdn.glitch.com/b10f4528-cf24-4eac-9dd3-ee827ac19144%2Fday01-openhat.wav?1533243023355"></audio>
-    <audio data-key="68" id="key68" src="https://cdn.glitch.com/b10f4528-cf24-4eac-9dd3-ee827ac19144%2Fday01-boom.wav?1533243022562"></audio>
-    <audio data-key="73" id="key73" src="https://cdn.glitch.com/b10f4528-cf24-4eac-9dd3-ee827ac19144%2Fday01-ride.wav?1533243023109"></audio>
-    <audio data-key="74" id="key74" src="https://cdn.glitch.com/b10f4528-cf24-4eac-9dd3-ee827ac19144%2Fday01-snare.wav?1533243023177"></audio>
-    <audio data-key="75" id="key75" src="https://cdn.glitch.com/b10f4528-cf24-4eac-9dd3-ee827ac19144%2Fday01-tom.wav?1533243022478"></audio>
-    <audio data-key="76" id="key76" src="https://cdn.glitch.com/b10f4528-cf24-4eac-9dd3-ee827ac19144%2Fday01-tink.wav?1533243023497"></audio>
+    <audio data-key="65" id="key65" src="clap.wav"></audio>
+    <audio data-key="83" id="key83" src="hihat.wav"></audio>
+    <audio data-key="32" id="key32" src="kick.wav"></audio>
+    <audio data-key="70" id="key70" src="openhat.wav"></audio>
+    <audio data-key="68" id="key68" src="boom.wav"></audio>
+    <audio data-key="72" id="key72" src="ride.wav"></audio>
+    <audio data-key="74" id="key74" src="snare.wav"></audio>
+    <audio data-key="75" id="key75" src="tom.wav"></audio>
+    <audio data-key="76" id="key76" src="tink.wav"></audio>
+
+    <!-- <audio data-key="20" id="key20" src="tink.wav"></audio>
+    <audio data-key="88" id="key88" src="tink.wav"></audio>
+    <audio data-key="67" id="key67" src="tink.wav"></audio>
+    <audio data-key="78" id="key78" src="tink.wav"></audio>
+    <audio data-key="77" id="key77" src="tink.wav"></audio>
+    <audio data-key="186" id="key186" src="tink.wav"></audio> -->
 
   </main>
 
   <script>
     document.addEventListener('keydown', (e) => {
-      if ([65, 83, 32, 87, 68, 73, 74, 75, 76].includes(e.keyCode)) playSound(e.keyCode);
+      if ([65, 83, 32, 70, 68, 72, 74, 75, 76].includes(e.keyCode)) playSound(e.keyCode);
     });
 
     let playSound = (key) => {
@@ -189,7 +265,7 @@
       sound.currentTime = 0;
       sound.play();
       animateDrum(key);
-    }
+    };
 
     let animateDrum = (key) => {
       document.querySelector('div[data-key="' + key + '"]').style.background = '#00adad';
@@ -210,6 +286,26 @@
       document.querySelector('#auto-play').disabled = false;
       document.querySelector('#stop-auto-play').disabled = true;
       for (let i = 1; i < 99999; i++) window.clearInterval(i);
+    }
+  </script>
+
+  <!-- Synthesizer stuff on the top row of the keyboard-->
+  <script src="Tone.min.js"></script>
+  <script>
+    document.addEventListener('keydown', (e) => {
+      if ([81, 87, 69, 82, 84, 89, 85, 73, 79, 80].includes(e.keyCode)) playTone(e.keyCode);
+    });
+
+    let playTone = (key) => {
+      let tone = new Tone.Synth().toMaster();
+      tone.triggerAttack("C4");
+      document.addEventListener('keyup', (e) => {
+        tone.triggerRelease();
+      });
+    }
+
+    let playToneScale = () => {
+      console.log('play scale');
     }
   </script>
 
