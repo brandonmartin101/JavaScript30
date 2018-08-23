@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Brandon P Martin - JavaScript 30 - Day 5</title>
+
+  <link rel="apple-touch-icon" sizes="57x57" href="../../favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="../../favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="../../favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="../../favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="../../favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="../../favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="../../favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="../../favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../../favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="../../favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon/favicon-16x16.png">
+  <link rel="manifest" href="../../favicon/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="../../favicon/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+      color: #eee;
+      text-shadow: 0 0 5px #222, 0 0 10px #222;
+    }
+
+    .home-link {
+      color: #eee;
+      text-shadow: 0 0 5px #222, 0 0 10px #222;
+      text-decoration: none;
+      position: absolute;
+      bottom: 10vh;
+      left: 0;
+      right: 0;
+      font-weight: bold;
+    }
+
+    .gallery-section {
+      text-align: center;
+      margin: auto;
+      position: relative;
+      flex: 1;
+      transition: .3s;
+      height: 100%;
+      min-width: 10%;
+      max-width: 20%;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .gallery-section:hover {
+      max-width: 40%;
+      flex-grow: 3;
+    }
+
+    .gs-image {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      z-index: -1;
+      transition: .3s;
+    }
+
+    #gallery-wrap {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    #gs-1 .gs-image {
+      left: 0;
+      right: auto;
+    }
+
+    #gs-2 .gs-image,
+    #gs-3 .gs-image,
+    #gs-4 .gs-image {
+      left: -40vw;
+      right: auto;
+    }
+
+    #gs-5 .gs-image {
+      left: auto;
+      right: 0;
+    }
+
+    #gs-2:hover .gs-image {
+      left: -34vw;
+    }
+
+    #gs-4:hover .gs-image {
+      left: -26vw;
+    }
+
+    #gs-3:hover .gs-image {
+      left: -30vw;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <main>
+    <div id="gallery-wrap">
+      <div class="gallery-section" id="gs-1">
+        <h1>Day</h1>
+        <img src="city-unsplash.jpg" alt="" class="gs-image">
+      </div>
+      <div class="gallery-section" id="gs-2">
+        <h1>- 3 -</h1>
+        <img src="forest-unsplash.jpg" alt="" class="gs-image">
+      </div>
+      <div class="gallery-section" id="gs-3">
+        <h1>Flexing</h1>
+        <a class="home-link" href="../../index.html" id="home-link">Go Back Home</a>
+        <img src="ocean-unsplash.jpg" alt="" class="gs-image">
+      </div>
+      <div class="gallery-section" id="gs-4">
+        <h1>Image</h1>
+        <img src="desert-unsplash.jpg" alt="" class="gs-image">
+      </div>
+      <div class="gallery-section" id="gs-5">
+        <h1>Gallery</h1>
+        <img src="city-unsplash.jpg" alt="" class="gs-image">
+      </div>
+    </div>
+  </main>
+
+  <script></script>
+
+</body>
+
+</html>
