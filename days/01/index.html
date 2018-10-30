@@ -5,143 +5,82 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Day 1 - Brandon P Martin - JavaScript 30</title>
+  <title>Brandon P Martin | JavaScript 30 | Day 1</title>
 
-  <link rel="apple-touch-icon" sizes="57x57" href="../../favicon/apple-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="../../favicon/apple-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="../../favicon/apple-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="../../favicon/apple-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="../../favicon/apple-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="../../favicon/apple-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="../../favicon/apple-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="../../favicon/apple-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../../favicon/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="../../favicon/android-icon-192x192.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="../../favicon/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon/favicon-16x16.png">
-  <link rel="manifest" href="../../favicon/manifest.json">
-  <meta name="msapplication-TileColor" content="#ffffff">
-  <meta name="msapplication-TileImage" content="../../favicon/ms-icon-144x144.png">
-  <meta name="theme-color" content="#ffffff">
+  <link rel="stylesheet" href="../../style.css">
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:300" rel="stylesheet">
+
+  <link rel="apple-touch-icon" sizes="57x57" href="https://www.brandonpmartin.com/favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="https://www.brandonpmartin.com/favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://www.brandonpmartin.com/favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://www.brandonpmartin.com/favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="https://www.brandonpmartin.com/favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="https://www.brandonpmartin.com/favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="https://www.brandonpmartin.com/favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="https://www.brandonpmartin.com/favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.brandonpmartin.com/favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="https://www.brandonpmartin.com/favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.brandonpmartin.com/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="https://www.brandonpmartin.com/favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.brandonpmartin.com/favicon/favicon-16x16.png">
+  <link rel="manifest" href="https://www.brandonpmartin.com/favicon/manifest.json">
+  <meta name="msapplication-TileColor" content="#0b4168">
+  <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
+  <meta name="theme-color" content="#0b4168">
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
-      margin: 2em;
-    }
-
-    h1 {
-      font-style: italic;
-      color: #373fff;
-    }
-
-    .bold {
-      font-weight: bold;
-    }
-
-    p {
-      max-width: 600px;
-    }
-
-    form {
-      margin-bottom: 25px;
-      padding: 15px;
-      background-color: cyan;
-      display: inline-block;
-      width: 100%;
-      max-width: 340px;
-      border-radius: 3px;
-    }
-
-    input {
-      display: block;
-      margin-bottom: 10px;
-      padding: 5px;
-      width: 100%;
-      border: 1px solid lightgrey;
-      border-radius: 3px;
-      font-size: 16px;
-    }
-
-    button {
-      font-size: 16px;
-      border-radius: 3px;
-      background-color: lightgrey;
-      border: 1px solid grey;
-      box-shadow: 2px 2px teal;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: yellow;
-    }
-
-    button:active {
-      box-shadow: none;
-    }
-
-    li {
-      margin-bottom: 5px;
-    }
-
-    footer {
-      margin-top: 50px;
-      padding-top: 25px;
-      border-top: 1px solid lightgrey;
-    }
-
-    /* Day 01 */
-
-    #day-01-wrap .keys {
-      width: 100%;
-    }
-
-    #day-01-wrap .key {
-      display: inline-block;
-      border: 1px solid #777;
-      padding: 10px;
-      text-align: center;
-      float: left;
-    }
-
-    #day-01-wrap .key.synth {
-      width: 100%;
-    }
-
-    #day-01-wrap kbd {
+    kbd {
       display: block;
       font-size: 2rem;
     }
 
-    #day-01-wrap .synth kbd {
+    button {
+      margin-top: 20px;
+    }
+
+    .keys {
+      width: 100%;
+    }
+
+    .key {
+      display: inline-block;
+      background: #ededed;
+      border: 1px solid #777;
+      padding: 10px;
+      text-align: center;
+      float: left;
+      margin-bottom: -1px;
+    }
+
+    .key.synth {
+      width: 100%;
+    }
+
+    .synth kbd {
       display: inline-block;
       width: 9%;
       max-width: 30px;
     }
 
-    #day-01-wrap .synth .sound {
+    .synth .sound {
       display: block;
     }
 
-    #day-01-wrap .triple {
+    .triple {
       width: calc(100% / 2);
     }
 
-    #day-01-wrap .single {
+    .single {
       width: calc(100% / 6);
     }
 
-    #day-01-wrap .wide {
+    .wide {
       width: 100%;
     }
 
-    #day-01-wrap button {
-      margin-top: 20px;
+    .key.triple:first-child,
+    .key.single:not(:nth-last-child(2)) {
+      border-right: none;
     }
   </style>
 
@@ -152,7 +91,7 @@
   <main id="day-01-wrap">
 
     <h1>
-      Day 1
+      Day 1 - Drum Machine
     </h1>
 
     <div class="keys">
@@ -234,7 +173,9 @@
     <button id="auto-play" onclick="autoPlay()">Auto-Play</button>
     <button id="stop-auto-play" onclick="stopAutoPlay()" disabled>Stop Auto-Play</button>
 
-    <a href="../../index.html" id="home-link">Go Back Home</a>
+    <div class="home-link">
+      <a href="../../index.html">Go Back Home</a>
+    </div>
 
     <audio data-key="65" id="key65" src="clap.wav"></audio>
     <audio data-key="83" id="key83" src="hihat.wav"></audio>
@@ -270,16 +211,24 @@
     let animateDrum = (key) => {
       document.querySelector('div[data-key="' + key + '"]').style.background = '#00adad';
       window.setTimeout(() => {
-        document.querySelector('div[data-key="' + key + '"]').style.background = '#fff';
+        document.querySelector('div[data-key="' + key + '"]').style.background = '#ededed';
       }, 100);
     };
 
     let autoPlay = () => {
       document.querySelector('#auto-play').disabled = true;
       document.querySelector('#stop-auto-play').disabled = false;
-      setInterval(() => { playSound(32); }, 1000); // kick
-      setInterval(() => { playSound(83); }, 250); // hi-hat
-      setTimeout(() => { setInterval(() => { playSound(74); }, 1000); }, 500); // snare
+      setInterval(() => {
+        playSound(32);
+      }, 1000); // kick
+      setInterval(() => {
+        playSound(83);
+      }, 250); // hi-hat
+      setTimeout(() => {
+        setInterval(() => {
+          playSound(74);
+        }, 1000);
+      }, 500); // snare
     };
 
     let stopAutoPlay = () => {

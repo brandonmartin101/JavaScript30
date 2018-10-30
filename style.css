@@ -1,0 +1,102 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color: #121212;
+  background: #ededed;
+}
+
+body,
+tt,
+code,
+kbd,
+samp,
+input,
+textarea,
+select,
+button {
+  font-family: "Fira Sans Condensed", Arial, sans-serif;
+}
+
+body {
+  font-size: 22px;
+  font-weight: 300;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+h1,
+h2 {
+  font-weight: 300;
+}
+
+h1 {
+  font-size: 1.5em;
+}
+
+h2 {
+  font-size: 1.3em;
+}
+
+p,
+ul {
+  font-size: 1em;
+}
+
+ul {
+  list-style-type: none;
+}
+
+fieldset {
+  margin: 0 0 -1px;
+  border: 1px solid #121212;
+}
+
+li {
+  display: inline-block;
+  border: 1px solid #121212;
+  padding: 6px 15px;
+  margin: 5px;
+}
+
+li:hover,
+button:hover {
+  background: #9e403c;
+  color: #ededed;
+}
+
+a {
+  color: #121212;
+  text-decoration: none;
+}
+
+button {
+  color: #121212;
+  background: #ededed;
+  border: 1px solid #121212;
+  padding: 6px 12px;
+  font-size: 1em;
+  font-weight: 300;
+}
+
+li:hover a {
+  color: #ededed;
+}
+
+.portrait {
+  border-radius: 50%;
+}
+
+.home-link {
+  border: 1px solid #121212;
+  color: #ededed;
+  padding: 6px 12px;
+  margin: 100px auto 50px;
+  max-width: 200px;
+}
+
+.uline {
+  text-decoration: underline;
+}
