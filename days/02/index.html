@@ -5,37 +5,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Brandon P Martin - JavaScript 30 - Day 2</title>
+  <title>Brandon P Martin | JavaScript 30 | Day 2</title>
 
-  <link rel="apple-touch-icon" sizes="57x57" href="../../favicon/apple-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="../../favicon/apple-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="../../favicon/apple-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="../../favicon/apple-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="../../favicon/apple-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="../../favicon/apple-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="../../favicon/apple-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="../../favicon/apple-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../../favicon/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="../../favicon/android-icon-192x192.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="../../favicon/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon/favicon-16x16.png">
-  <link rel="manifest" href="../../favicon/manifest.json">
-  <meta name="msapplication-TileColor" content="#ffffff">
-  <meta name="msapplication-TileImage" content="../../favicon/ms-icon-144x144.png">
-  <meta name="theme-color" content="#ffffff">
+  <link rel="stylesheet" href="../../style.css">
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:300" rel="stylesheet">
+
+  <link rel="apple-touch-icon" sizes="57x57" href="https://www.brandonpmartin.com/favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="https://www.brandonpmartin.com/favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://www.brandonpmartin.com/favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://www.brandonpmartin.com/favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="https://www.brandonpmartin.com/favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="https://www.brandonpmartin.com/favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="https://www.brandonpmartin.com/favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="https://www.brandonpmartin.com/favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.brandonpmartin.com/favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="https://www.brandonpmartin.com/favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.brandonpmartin.com/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="https://www.brandonpmartin.com/favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.brandonpmartin.com/favicon/favicon-16x16.png">
+  <link rel="manifest" href="https://www.brandonpmartin.com/favicon/manifest.json">
+  <meta name="msapplication-TileColor" content="#0b4168">
+  <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
+  <meta name="theme-color" content="#0b4168">
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    h1,
-    h2 {
-      text-align: center;
-    }
-
-    .clock-face {
+    #day-02-wrap .clock-face {
       border: 2px solid black;
       border-radius: 50%;
       width: 200px;
@@ -44,7 +38,7 @@
       margin: 0 auto;
     }
 
-    .clock-face::before {
+    #day-02-wrap .clock-face::before {
       content: '';
       position: absolute;
       top: 97px;
@@ -55,30 +49,30 @@
       background: black;
     }
 
-    .hour-hand,
-    .minute-hand,
-    .second-hand {
+    #day-02-wrap .hour-hand,
+    #day-02-wrap .minute-hand,
+    #day-02-wrap .second-hand {
       background: black;
       width: 2px;
       position: absolute;
       transform-origin: bottom;
     }
 
-    .hour-hand {
+    #day-02-wrap .hour-hand {
       height: 40px;
       left: 99px;
       top: 60px;
       animation: tick 216000s linear infinite;
     }
 
-    .minute-hand {
+    #day-02-wrap .minute-hand {
       height: 70px;
       left: 99px;
       top: 30px;
       animation: tick 3600s linear infinite;
     }
 
-    .second-hand {
+    #day-02-wrap .second-hand {
       width: 2px;
       height: 90px;
       left: 99px;
@@ -90,6 +84,7 @@
       0% {
         transform: rotate(0deg);
       }
+
       100% {
         transform: rotate(360deg);
       }
@@ -100,7 +95,7 @@
 
 <body>
 
-  <main>
+  <main id="day-02-wrap">
     <h1>Day 2 - CSS/JS Clocks</h1>
     <div class="css-clock">
       <div class="clock-face">
@@ -110,7 +105,10 @@
       </div>
     </div>
 
-    <a href="../../index.html" id="home-link">Go Back Home</a>
+    <div class="home-link">
+      <a href="../../index.html">Go Back Home</a>
+    </div>
+
   </main>
 
   <script>

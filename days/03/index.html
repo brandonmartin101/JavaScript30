@@ -5,25 +5,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Brandon P Martin - JavaScript 30 - Day 3</title>
+  <title>Brandon P Martin | JavaScript 30 | Day 3</title>
 
-  <link rel="apple-touch-icon" sizes="57x57" href="../../favicon/apple-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="../../favicon/apple-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="../../favicon/apple-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="../../favicon/apple-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="../../favicon/apple-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="../../favicon/apple-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="../../favicon/apple-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="../../favicon/apple-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../../favicon/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="../../favicon/android-icon-192x192.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="../../favicon/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon/favicon-16x16.png">
-  <link rel="manifest" href="../../favicon/manifest.json">
-  <meta name="msapplication-TileColor" content="#ffffff">
-  <meta name="msapplication-TileImage" content="../../favicon/ms-icon-144x144.png">
-  <meta name="theme-color" content="#ffffff">
+  <link rel="stylesheet" href="../../style.css">
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:300" rel="stylesheet">
+
+  <link rel="apple-touch-icon" sizes="57x57" href="https://www.brandonpmartin.com/favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="https://www.brandonpmartin.com/favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://www.brandonpmartin.com/favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://www.brandonpmartin.com/favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="https://www.brandonpmartin.com/favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="https://www.brandonpmartin.com/favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="https://www.brandonpmartin.com/favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="https://www.brandonpmartin.com/favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.brandonpmartin.com/favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="https://www.brandonpmartin.com/favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.brandonpmartin.com/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="https://www.brandonpmartin.com/favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.brandonpmartin.com/favicon/favicon-16x16.png">
+  <link rel="manifest" href="https://www.brandonpmartin.com/favicon/manifest.json">
+  <meta name="msapplication-TileColor" content="#0b4168">
+  <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
+  <meta name="theme-color" content="#0b4168">
 
   <!-- Pickr - JS Color Picker -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pickr-widget/dist/pickr.min.css" />
@@ -45,13 +48,27 @@
       --img-sepia: 0;
     }
 
-    * {
-      box-sizing: border-box;
+    fieldset {
+      width: 50%;
+      height: 50px;
+      float: left;
+      text-align: left;
     }
 
-    h1,
-    h2 {
+    fieldset:first-child {
+      width: 100%;
       text-align: center;
+    }
+
+    fieldset:last-child {
+      height: 75px;
+    }
+
+    fieldset:nth-child(3),
+    fieldset:nth-child(5),
+    fieldset:nth-child(7),
+    fieldset:nth-child(8) {
+      border-left: none;
     }
 
     img {
@@ -60,20 +77,18 @@
 
     img.active {
       display: inline-block;
-      margin: 20px auto;
       max-width: 100%;
       filter: blur(var(--img-blur)) brightness(var(--img-brightness)) contrast(var(--img-contrast)) drop-shadow(var(--img-drop-shadow-horiz) var(--img-drop-shadow-vert) var(--img-drop-shadow-blur) var(--img-drop-shadow-color)) grayscale(var(--img-grayscale)) hue-rotate(var(--img-hue-rotate)) invert(var(--img-invert)) opacity(var(--img-opacity)) saturate(var(--img-saturate)) sepia(var(--img-sepia));
     }
 
+    input[type=text] {
+      height: 22px;
+    }
+
     input[type=range] {
-      /*removes default webkit styles*/
       -webkit-appearance: none;
-
-      /*fix for FF unable to apply focus style bug */
       border: 1px solid white;
-
-      /*required for proper track sizing in FF*/
-      width: 300px;
+      width: 50%;
     }
 
     input[type=range]::-webkit-slider-runnable-track {
@@ -166,8 +181,26 @@
       background: #ddd;
     }
 
+    .pickr {
+      display: inline-block;
+      margin: 0 0 -7px -7px;
+    }
+
     .pickr .pcr-button {
       border: 1px solid #444;
+      width: 22px;
+      height: 22px;
+      padding: 0;
+      border-radius: 0;
+    }
+
+    .pickr .pcr-app {
+      z-index: 1;
+    }
+
+    #drop-shadow {
+      float: right;
+      height: 173px;
     }
   </style>
 
@@ -175,10 +208,8 @@
 
 <body>
 
-  <main>
-    <h1>Day 3 - JS with CSS Variables</h1>
-
-    <h2>Image Editor</h2>
+  <main id="day-03-wrap">
+    <h1>Day 3 - Image Filters</h1>
 
     <div class="controls-wrap">
       <form>
@@ -197,80 +228,84 @@
 
         <fieldset>
           <label for="blur-slider">Blur:</label>
-          <input type="range" name="blur-slider" id="blur-slider" min="0" max="50" value="0" step="1" oninput="updateFilters(value + 'px', 'blur')"
-          />
+          <input type="range" name="blur-slider" id="blur-slider" min="0" max="50" value="0" step="1" oninput="updateFilters(value + 'px', 'blur')" />
           <output for="blur-slider" id="blur-output">0</output>
         </fieldset>
 
         <fieldset>
           <label for="brightness-slider">Brightness:</label>
-          <input type="range" name="brightness-slider" id="brightness-slider" min="0" max="300" value="100" step="1" oninput="updateFilters(value + '%', 'brightness')"
-          />
+          <input type="range" name="brightness-slider" id="brightness-slider" min="0" max="300" value="100" step="1"
+            oninput="updateFilters(value + '%', 'brightness')" />
           <output for="brightness-slider" id="brightness-output">100</output>
         </fieldset>
 
         <fieldset>
           <label for="contrast-slider">Contrast:</label>
-          <input type="range" name="contrast-slider" id="contrast-slider" min="0" max="300" value="100" step="1" oninput="updateFilters(value + '%', 'contrast')"
-          />
+          <input type="range" name="contrast-slider" id="contrast-slider" min="0" max="300" value="100" step="1"
+            oninput="updateFilters(value + '%', 'contrast')" />
           <output for="contrast-slider" id="contrast-output">100</output>
         </fieldset>
 
         <fieldset>
-          <label for="drop-shadow-slider">Drop Shadow:</label>
-          <input type="range" name="drop-shadow-horiz-slider" id="drop-shadow-horiz-slider" min="-50" max="50" value="0" step="1" oninput="updateFilters(value + 'px', 'drop-shadow-horiz')"
-          />
-          <output for="drop-shadow-horiz-slider" id="drop-shadow-horiz-output">50</output>
-          <input type="range" name="drop-shadow-vert-slider" id="drop-shadow-vert-slider" min="-50" max="50" value="0" step="1" oninput="updateFilters(value + 'px', 'drop-shadow-vert')"
-          />
-          <output for="drop-shadow-vert-slider" id="drop-shadow-vert-output">50</output>
-          <input type="range" name="drop-shadow-blur-slider" id="drop-shadow-blur-slider" min="0" max="50" value="0" step="1" oninput="updateFilters(value + 'px', 'drop-shadow-blur')"
-          />
-          <output for="drop-shadow-blur-slider" id="drop-shadow-blur-output">0</output>
-          <input type="text" name="drop-shadow-color-picker" id="drop-shadow-color-picker" />
-          <div id="color-picker"></div>
-        </fieldset>
-
-        <fieldset>
           <label for="grayscale-slider">Grayscale:</label>
-          <input type="range" name="grayscale-slider" id="grayscale-slider" min="0" max="100" value="0" step="1" oninput="updateFilters(value + '%', 'grayscale')"
-          />
+          <input type="range" name="grayscale-slider" id="grayscale-slider" min="0" max="100" value="0" step="1"
+            oninput="updateFilters(value + '%', 'grayscale')" />
           <output for="grayscale-slider" id="grayscale-output">0</output>
         </fieldset>
 
         <fieldset>
           <label for="hue-rotate-slider">Hue Rotate:</label>
-          <input type="range" name="hue-rotate-slider" id="hue-rotate-slider" min="0" max="360" value="0" step="1" oninput="updateFilters(value + 'deg', 'hue-rotate')"
-          />
+          <input type="range" name="hue-rotate-slider" id="hue-rotate-slider" min="0" max="360" value="0" step="1"
+            oninput="updateFilters(value + 'deg', 'hue-rotate')" />
           <output for="hue-rotate-slider" id="hue-rotate-output">0</output>
           <span>deg</span>
         </fieldset>
 
         <fieldset>
           <label for="invert-slider">Invert:</label>
-          <input type="range" name="invert-slider" id="invert-slider" min="0" max="100" value="0" step="1" oninput="updateFilters(value + '%', 'invert')"
-          />
+          <input type="range" name="invert-slider" id="invert-slider" min="0" max="100" value="0" step="1" oninput="updateFilters(value + '%', 'invert')" />
           <output for="invert-slider" id="invert-output">0</output>
+        </fieldset>
+
+        <fieldset id="drop-shadow">
+          <label for="drop-shadow-slider" class="uline">Drop Shadow</label>
+          <br>
+          <label for="drop-shadow-horiz-slider">Horizontal:</label>
+          <input type="range" name="drop-shadow-horiz-slider" id="drop-shadow-horiz-slider" min="-50" max="50" value="0"
+            step="1" oninput="updateFilters(value + 'px', 'drop-shadow-horiz')" />
+          <output for="drop-shadow-horiz-slider" id="drop-shadow-horiz-output">50</output>
+          <br>
+          <label for="drop-shadow-vert-slider">Vertical:</label>
+          <input type="range" name="drop-shadow-vert-slider" id="drop-shadow-vert-slider" min="-50" max="50" value="0"
+            step="1" oninput="updateFilters(value + 'px', 'drop-shadow-vert')" />
+          <output for="drop-shadow-vert-slider" id="drop-shadow-vert-output">50</output>
+          <br>
+          <label for="drop-shadow-blur-slider">Blur:</label>
+          <input type="range" name="drop-shadow-blur-slider" id="drop-shadow-blur-slider" min="0" max="50" value="0"
+            step="1" oninput="updateFilters(value + 'px', 'drop-shadow-blur')" />
+          <output for="drop-shadow-blur-slider" id="drop-shadow-blur-output">0</output>
+          <br>
+          <label for="drop-shadow-color-picker">Color:</label>
+          <input type="text" name="drop-shadow-color-picker" id="drop-shadow-color-picker" />
+          <div id="color-picker"></div>
         </fieldset>
 
         <fieldset>
           <label for="opacity-slider">Opacity:</label>
-          <input type="range" name="opacity-slider" id="opacity-slider" min="0" max="100" value="100" step="1" oninput="updateFilters(value + '%', 'opacity')"
-          />
+          <input type="range" name="opacity-slider" id="opacity-slider" min="0" max="100" value="100" step="1" oninput="updateFilters(value + '%', 'opacity')" />
           <output for="opacity-slider" id="opacity-output">100</output>
         </fieldset>
 
         <fieldset>
           <label for="saturate-slider">Saturate:</label>
-          <input type="range" name="saturate-slider" id="saturate-slider" min="0" max="300" value="100" step="1" oninput="updateFilters(value + '%', 'saturate')"
-          />
+          <input type="range" name="saturate-slider" id="saturate-slider" min="0" max="300" value="100" step="1"
+            oninput="updateFilters(value + '%', 'saturate')" />
           <output for="saturate-slider" id="saturate-output">100</output>
         </fieldset>
 
         <fieldset>
           <label for="sepia-slider">Sepia:</label>
-          <input type="range" name="sepia-slider" id="sepia-slider" min="0" max="100" value="0" step="1" oninput="updateFilters(value + '%', 'sepia')"
-          />
+          <input type="range" name="sepia-slider" id="sepia-slider" min="0" max="100" value="0" step="1" oninput="updateFilters(value + '%', 'sepia')" />
           <output for="sepia-slider" id="sepia-output">0</output>
         </fieldset>
 
@@ -283,7 +318,10 @@
       <img id="image-4" src="desert-unsplash.jpg" alt="Desert Image - Madeline Pere from Unsplash">
     </div>
 
-    <a href="../../index.html" id="home-link">Go Back Home</a>
+    <div class="home-link">
+      <a href="../../index.html">Go Back Home</a>
+    </div>
+
   </main>
 
   <!-- Pickr - JS Color Picker -->
@@ -291,7 +329,9 @@
 
   <script>
     let changeImg = (e) => {
-      document.querySelectorAll('.image-wrap img').forEach((e) => { e.className = ""; });
+      document.querySelectorAll('.image-wrap img').forEach((e) => {
+        e.className = "";
+      });
       document.querySelector('#image-' + e).className = 'active';
     }
 
