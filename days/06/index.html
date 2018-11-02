@@ -28,7 +28,23 @@
   <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
   <meta name="theme-color" content="#0b4168">
 
-  <style></style>
+  <style>
+    input {
+      width: 300px;
+      height: 50px;
+      padding: 0 15px;
+      font-size: 1em;
+    }
+
+    ul {
+      padding-left: 0;
+    }
+
+    li span:last-child {
+      font-size: .7em;
+      margin-left: 20px;
+    }
+  </style>
 
 </head>
 
@@ -40,11 +56,51 @@
       Day 6 - Autocomplete Search
     </h1>
 
+    <form class="search-form">
+      <label for="searchBox">Enter City or State here:</label>
+      <input type="text" class="search" placeholder="City or State" id="searchBox" onkeyup="runSearch(value);" value="San">
+    </form>
+
+    <ul class="cities" id="cities-list">
+      <li>Searched cities will appear here</li>
+    </ul>
+
     <div class="home-link">
       <a href="../../index.html">Go Back Home</a>
     </div>
 
   </main>
+
+  <script>
+    const endpoint =
+      'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+    let cities = [];
+
+    fetch(endpoint)
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        cities = data;
+        runSearch(document.getElementById('searchBox').value);
+      })
+
+    const runSearch = (val) => {
+      // abort if no city is entered
+      if (val === '') return;
+
+      let cList = document.getElementById('cities-list');
+      // wipe old list
+      cList.innerHTML = '';
+
+      // create new list
+      const results = cities.filter(entry => (entry.city.indexOf(val) !== -1 || entry.state.indexOf(val) !== -1));
+      for (let result of results) {
+        cList.innerHTML += '<li><span>' + result.city + ', ' + result.state + '</span><span>' + result.population +
+          '</span></li>';
+      }
+    }
+  </script>
 
 </body>
 
