@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Brandon P Martin | JavaScript 30 | Day 8</title>
+
+  <link rel="stylesheet" href="../../style.css">
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:300" rel="stylesheet">
+
+  <link rel="apple-touch-icon" sizes="57x57" href="https://www.brandonpmartin.com/favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="https://www.brandonpmartin.com/favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://www.brandonpmartin.com/favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://www.brandonpmartin.com/favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="https://www.brandonpmartin.com/favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="https://www.brandonpmartin.com/favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="https://www.brandonpmartin.com/favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="https://www.brandonpmartin.com/favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.brandonpmartin.com/favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="https://www.brandonpmartin.com/favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.brandonpmartin.com/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="https://www.brandonpmartin.com/favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.brandonpmartin.com/favicon/favicon-16x16.png">
+  <link rel="manifest" href="https://www.brandonpmartin.com/favicon/manifest.json">
+  <meta name="msapplication-TileColor" content="#0b4168">
+  <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
+  <meta name="theme-color" content="#0b4168">
+
+  <style>
+    .inbox {
+      max-width: 300px;
+      margin: 0 auto;
+    }
+
+    .item {
+      margin-bottom: 5px;
+      position: relative;
+    }
+
+    input {
+      display: none;
+    }
+
+    input:checked + label {
+      border-color: #0a0;
+    }
+
+    label {
+      display: block;
+      width: 100%;
+      height: 30px;
+      position: relative;
+      border: 2px solid #aaa;
+      border-left-width: 30px;
+      cursor: pointer;
+      user-select: none;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <main id="day-10-wrap">
+
+    <h1>
+      Day 10 - Multi-Select Checkboxes
+    </h1>
+
+    <p>Click a checkbox, hold down shift, and then select another checkbox. All checkboxes between the two will be
+      checked.</p>
+
+    <form class="inbox">
+      <div class="item">
+        <input type="checkbox" class="box" id="c1">
+        <label for="c1">A</label>
+      </div>
+      <div class="item">
+        <input type="checkbox" class="box" id="c2">
+        <label for="c2">B</label>
+      </div>
+      <div class="item">
+        <input type="checkbox" class="box" id="c3">
+        <label for="c3">C</label>
+      </div>
+      <div class="item">
+        <input type="checkbox" class="box" id="c4">
+        <label for="c4">D</label>
+      </div>
+      <div class="item">
+        <input type="checkbox" class="box" id="c5">
+        <label for="c5">E</label>
+      </div>
+      <div class="item">
+        <input type="checkbox" class="box" id="c6">
+        <label for="c6">F</label>
+      </div>
+      <div class="item">
+        <input type="checkbox" class="box" id="c7">
+        <label for="c7">G</label>
+      </div>
+      <div class="item">
+        <input type="checkbox" class="box" id="c8">
+        <label for="c8">H</label>
+      </div>
+      <div class="item">
+        <input type="checkbox" class="box" id="c9">
+        <label for="c9">I</label>
+      </div>
+    </form>
+
+    <div class="home-link">
+      <a href="../../index.html">Go Back Home</a>
+    </div>
+
+  </main>
+
+  <script>
+    let shiftActive = 0;
+    let checkActive = 0;
+    let startCheck = '';
+    let endCheck = '';
+
+    document.querySelectorAll('input').forEach((e) => {
+      e.addEventListener('click', (e) => {
+        if (shiftActive === 1) {
+          endCheck = e.target.id;
+          selectGroup(startCheck, endCheck);
+        } else {
+          startCheck = e.target.id;
+          endCheck = '';
+        }
+      });
+    });
+
+    document.addEventListener('keydown', (e) => {
+      shiftActive = 1;
+    });
+
+    document.addEventListener('keyup', (e) => {
+      shiftActive = 0;
+    });
+
+    const selectGroup = (startCheck, endCheck) => {
+      if (document.getElementById(startCheck).checked === false) return;
+      document.querySelectorAll('label').forEach((e) => {
+        if (e.htmlFor === startCheck) checkActive = 1;
+        if (checkActive === 1) document.getElementById(e.htmlFor).checked = true;
+        if (e.htmlFor === endCheck) checkActive = 0;
+      });
+    }
+  </script>
+
+</body>
+
+</html>
