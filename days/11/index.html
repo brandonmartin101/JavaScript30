@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Brandon P Martin | JavaScript 30 | Day 11</title>
+
+  <link rel="stylesheet" href="../../style.css">
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:300" rel="stylesheet">
+
+  <link rel="apple-touch-icon" sizes="57x57" href="https://www.brandonpmartin.com/favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="https://www.brandonpmartin.com/favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://www.brandonpmartin.com/favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://www.brandonpmartin.com/favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="https://www.brandonpmartin.com/favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="https://www.brandonpmartin.com/favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="https://www.brandonpmartin.com/favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="https://www.brandonpmartin.com/favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.brandonpmartin.com/favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="https://www.brandonpmartin.com/favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.brandonpmartin.com/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="https://www.brandonpmartin.com/favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.brandonpmartin.com/favicon/favicon-16x16.png">
+  <link rel="manifest" href="https://www.brandonpmartin.com/favicon/manifest.json">
+  <meta name="msapplication-TileColor" content="#0b4168">
+  <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
+  <meta name="theme-color" content="#0b4168">
+
+  <style>
+    label,
+    button {
+      font-size: 16px;
+      color: #fff;
+    }
+
+    button:hover {
+      background: #0a0a;
+    }
+
+    .player {
+      max-width: 750px;
+      border: 2px solid #444;
+      position: relative;
+      font-size: 0;
+      overflow: hidden;
+      margin: 0 auto;
+    }
+
+      /* This css is only applied when fullscreen is active. */
+    .player:fullscreen {
+      max-width: none;
+      width: 100%;
+    }
+
+    .player:-webkit-full-screen {
+      max-width: none;
+      width: 100%;
+    }
+
+    .player-video {
+      width: 100%;
+    }
+
+    .player-button, .progress {
+      cursor: pointer;
+    }
+
+    .player-button {
+      background: none;
+      border: 0;
+      line-height: 1;
+      text-align: center;
+      outline: 0;
+      padding: 0;
+      max-width: 50px;
+    }
+
+    .player-button:focus {
+      border-color: #0a0;
+    }
+
+    .player-slider {
+      width: 10px;
+      height: 30px;
+    }
+
+    .player-controls {
+      display: flex;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      transform: translateY(100%) translateY(-5px);
+      transition: all .3s;
+      flex-wrap: wrap;
+      background: #0009;
+    }
+
+    .player:hover .player-controls {
+      transform: translateY(0);
+    }
+
+    .player-controls > * {
+      flex: 1;
+    }
+
+    .progress {
+      flex: 10;
+      position: relative;
+      display: flex;
+      flex-basis: 100%;
+      height: 5px;
+      transition: height 0.3s;
+      background: #0008;
+    }
+    .player:hover .progress {
+      height: 10px;
+    }
+
+    .progress-filled {
+      width: 50%;
+      background: #0a0;
+      flex: 0;
+      flex-basis: 0%;
+    }
+
+    .range-group label {
+      width: 60px;
+      display: inline-block;
+      position: relative;
+      top: -6px;
+    }
+    .range-group input {
+      width: calc(100% - 80px);
+    }
+
+    input[type=range] {
+      -webkit-appearance: none;
+      background: transparent;
+      margin: 0 5px;
+      position: relative;
+      top: 3px;
+    }
+
+    input[type=range]:focus {
+      outline: none;
+    }
+
+    /* Track */
+    input[type=range]::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 8.4px;
+      cursor: pointer;
+      box-shadow: 1px 1px 1px #000, 0 0 1px #0d0d0d;
+      background: #fffc;
+      border-radius: 1.3px;
+      border: none;
+    }
+    input[type=range]::-moz-range-track {
+      width: 100%;
+      height: 8.4px;
+      cursor: pointer;
+      box-shadow: 1px 1px 1px #000, 0 0 1px #a04b4b00;
+      background: #fff;
+      border-radius: 1.3px;
+      border: none;
+    }
+
+    /* Thumb */
+    input[type=range]::-webkit-slider-thumb {
+      height: 15px;
+      width: 15px;
+      border-radius: 50px;
+      background: #0a0;
+      cursor: pointer;
+      -webkit-appearance: none;
+      margin-top: -3.5px;
+      box-shadow:0 0 2px #0003;
+    }
+    input[type=range]::-moz-range-thumb {
+      box-shadow: 0 0 0 #000, 0 0 0 #0d0d0d00;
+      height: 15px;
+      width: 15px;
+      border-radius: 50px;
+      background: #0a0;
+      cursor: pointer;
+    }
+
+    /* Progress */
+    input[type=range]::-moz-range-progress {
+      height: 8.4px;
+      cursor: pointer;
+      background: #0a0;
+    }
+
+    #play-button {
+      position: relative;
+      color: transparent;
+    }
+    #play-button.paused::before {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: 18px;
+      border: 7px solid transparent;
+      border-left: 14px solid #fff;
+      width: 0;
+      height: 0;
+    }
+    #play-button.play::before {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: 18px;
+      border-left: 5px solid #fff;
+      border-right: 5px solid #fff;
+      width: 5px;
+      height: 15px;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <main id="day-11-wrap">
+
+    <h1>
+      Day 11 - Custom Video Player
+    </h1>
+
+    <div class="player">
+      <video class="player-video viewer" src="./vietnam-video.mp4"></video>
+      <div class="player-controls">
+        <div class="progress">
+          <div class="progress-filled"></div>
+        </div>
+        <button class="player-button toggle paused" title="Toggle Play" id="play-button">►</button>
+        <div class="range-group">
+          <label for="volume-slider">Volume</label>
+          <input type="range" name="volume" class="player-slider" id="volume-slider" min="0" max="1" step="0.05" value="1">
+        </div>
+        <div class="range-group">
+          <label for="playback-slider">Speed</label>
+          <input type="range" name="playbackRate" class="player-slider" id="playback-slider" min="0.5" max="2" step="0.1"
+            value="1">
+        </div>
+        <button data-skip="-10" class="player-button">« 10s</button>
+        <button data-skip="25" class="player-button">25s »</button>
+      </div>
+    </div>
+
+    <div class="home-link">
+      <a href="../../index.html">Go Back Home</a>
+    </div>
+
+  </main>
+
+  <script>
+    const player = document.querySelector('.player');
+    const video = player.querySelector('.viewer');
+    const progress = player.querySelector('.progress');
+    const progressBar = player.querySelector('.progress-filled');
+    const toggle = player.querySelector('.toggle');
+    const skipButtons = player.querySelectorAll('[data-skip]');
+    const ranges = player.querySelectorAll('.player-slider');
+
+    function togglePlay() {
+      const method = video.paused ? 'play' : 'pause';
+      video[method]();
+    }
+
+    const updateButton = () => {
+      let classBase = 'player-button toggle ';
+      let state = video.paused ? classBase + 'paused' : classBase + 'play';
+      document.getElementById('play-button').classList = state;
+    }
+
+    function skip() {
+      video.currentTime += parseFloat(this.dataset.skip);
+    }
+
+    function handleRangeUpdate() {
+      video[this.name] = this.value;
+    }
+
+    function handleProgress() {
+      const percent = (video.currentTime / video.duration) * 100;
+      progressBar.style.flexBasis = `${percent}%`;
+    }
+
+    function scrub(e) {
+      const scrubTime = (e.offsetX / progress.offsetWidth) * video.duration;
+      video.currentTime = scrubTime;
+    }
+
+    /* Hook up the event listeners */
+    video.addEventListener('click', togglePlay);
+    video.addEventListener('play', updateButton);
+    video.addEventListener('pause', updateButton);
+    video.addEventListener('timeupdate', handleProgress);
+
+    toggle.addEventListener('click', togglePlay);
+    skipButtons.forEach(button => button.addEventListener('click', skip));
+    ranges.forEach(range => range.addEventListener('change', handleRangeUpdate));
+    ranges.forEach(range => range.addEventListener('mousemove', handleRangeUpdate));
+
+    let mousedown = false;
+    progress.addEventListener('click', scrub);
+    progress.addEventListener('mousemove', (e) => mousedown && scrub(e));
+    progress.addEventListener('mousedown', () => mousedown = true);
+    progress.addEventListener('mouseup', () => mousedown = false);
+  </script>
+
+</body>
+
+</html>
