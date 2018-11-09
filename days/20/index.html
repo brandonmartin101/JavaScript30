@@ -5,27 +5,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Brandon P Martin | JavaScript 30 | Day 16</title>
+  <title>Brandon P Martin | JavaScript 30 | Day 20</title>
 
   <link rel="stylesheet" href="../../style.css" />
   <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:300" rel="stylesheet" />
 
-  <link rel="apple-touch-icon" sizes="57x57" href="./favicon/apple-icon-57x57.png" />
-  <link rel="apple-touch-icon" sizes="60x60" href="./favicon/apple-icon-60x60.png" />
-  <link rel="apple-touch-icon" sizes="72x72" href="./favicon/apple-icon-72x72.png" />
-  <link rel="apple-touch-icon" sizes="76x76" href="./favicon/apple-icon-76x76.png" />
-  <link rel="apple-touch-icon" sizes="114x114" href="./favicon/apple-icon-114x114.png" />
-  <link rel="apple-touch-icon" sizes="120x120" href="./favicon/apple-icon-120x120.png" />
-  <link rel="apple-touch-icon" sizes="144x144" href="./favicon/apple-icon-144x144.png" />
-  <link rel="apple-touch-icon" sizes="62x152" href="./favicon/apple-icon-152x152.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-icon-180x180.png" />
-  <link rel="icon" type="image/png" sizes="192x192" href="./favicon/android-icon-192x192.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="96x96" href="./favicon/favicon-96x96.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png" />
-  <link rel="manifest" href="./favicon/manifest.json" />
+  <link rel="apple-touch-icon" sizes="57x57" href="../../favicon/apple-icon-57x57.png" />
+  <link rel="apple-touch-icon" sizes="60x60" href="../../favicon/apple-icon-60x60.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="../../favicon/apple-icon-72x72.png" />
+  <link rel="apple-touch-icon" sizes="76x76" href="../../favicon/apple-icon-76x76.png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="../../favicon/apple-icon-114x114.png" />
+  <link rel="apple-touch-icon" sizes="120x120" href="../../favicon/apple-icon-120x120.png" />
+  <link rel="apple-touch-icon" sizes="144x144" href="../../favicon/apple-icon-144x144.png" />
+  <link rel="apple-touch-icon" sizes="62x152" href="../../favicon/apple-icon-152x152.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../../favicon/apple-icon-180x180.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="../../favicon/android-icon-192x192.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="../../favicon/favicon-96x96.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon/favicon-16x16.png" />
+  <link rel="manifest" href="../../favicon/manifest.json" />
   <meta name="msapplication-TileColor" content="#0b4168" />
-  <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png" />
+  <meta name="msapplication-TileImage" content="../../favicon/ms-icon-144x144.png" />
   <meta name="theme-color" content="#0b4168" />
 
   <style>
@@ -33,13 +33,37 @@
 </head>
 
 <body>
-  <main id="day-16-wrap">
-    <h1>Day 16 - Mouse Shadow</h1>
+  <main id="day-20-wrap">
+    <h1>Day 20 - Speech Detection</h1>
+
+    <div class="words" contenteditable></div>
 
     <div class="home-link"><a href="../../index.html">Go Back Home</a></div>
   </main>
 
   <script>
+    window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const recognition = new SpeechRecognition();
+    recognition.interimResults = true;
+    recognition.lang = 'en-US';
+
+    let p = document.createElement('p');
+    const words = document.querySelector('.words');
+    words.appendChild(p);
+    recognition.addEventListener('result', e => {
+      const transcript = Array.from(e.results)
+        .map(result => result[0])
+        .map(result => result.transcript)
+        .join('');
+      const poopScript = transcript.replace(/poop|poo|shit|dump/gi, '💩');
+      p.textContent = poopScript;
+      if (e.results[0].isFinal) {
+        p = document.createElement('p');
+        words.appendChild(p);
+      }
+    });
+    recognition.addEventListener('end', recognition.start);
+    recognition.start();
   </script>
 
 </body>

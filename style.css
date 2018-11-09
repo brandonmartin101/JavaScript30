@@ -1,3 +1,13 @@
+::selection {
+  background: #9e403c;
+  color: #fff;
+}
+
+::-moz-selection {
+  background: #9e403c;
+  color: #fff;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -28,7 +38,8 @@ body {
 }
 
 h1,
-h2 {
+h2,
+h3 {
   font-weight: 300;
 }
 
@@ -38,6 +49,10 @@ h1 {
 
 h2 {
   font-size: 1.3em;
+}
+
+h3 {
+  font-size: 1.2em;
 }
 
 p,

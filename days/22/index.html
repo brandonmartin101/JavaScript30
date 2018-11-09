@@ -5,41 +5,127 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Brandon P Martin | JavaScript 30 | Day 16</title>
+  <title>Brandon P Martin | JavaScript 30 | Day 22</title>
 
   <link rel="stylesheet" href="../../style.css" />
   <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:300" rel="stylesheet" />
 
-  <link rel="apple-touch-icon" sizes="57x57" href="./favicon/apple-icon-57x57.png" />
-  <link rel="apple-touch-icon" sizes="60x60" href="./favicon/apple-icon-60x60.png" />
-  <link rel="apple-touch-icon" sizes="72x72" href="./favicon/apple-icon-72x72.png" />
-  <link rel="apple-touch-icon" sizes="76x76" href="./favicon/apple-icon-76x76.png" />
-  <link rel="apple-touch-icon" sizes="114x114" href="./favicon/apple-icon-114x114.png" />
-  <link rel="apple-touch-icon" sizes="120x120" href="./favicon/apple-icon-120x120.png" />
-  <link rel="apple-touch-icon" sizes="144x144" href="./favicon/apple-icon-144x144.png" />
-  <link rel="apple-touch-icon" sizes="62x152" href="./favicon/apple-icon-152x152.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-icon-180x180.png" />
-  <link rel="icon" type="image/png" sizes="192x192" href="./favicon/android-icon-192x192.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="96x96" href="./favicon/favicon-96x96.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png" />
-  <link rel="manifest" href="./favicon/manifest.json" />
+  <link rel="apple-touch-icon" sizes="57x57" href="../../favicon/apple-icon-57x57.png" />
+  <link rel="apple-touch-icon" sizes="60x60" href="../../favicon/apple-icon-60x60.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="../../favicon/apple-icon-72x72.png" />
+  <link rel="apple-touch-icon" sizes="76x76" href="../../favicon/apple-icon-76x76.png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="../../favicon/apple-icon-114x114.png" />
+  <link rel="apple-touch-icon" sizes="120x120" href="../../favicon/apple-icon-120x120.png" />
+  <link rel="apple-touch-icon" sizes="144x144" href="../../favicon/apple-icon-144x144.png" />
+  <link rel="apple-touch-icon" sizes="62x152" href="../../favicon/apple-icon-152x152.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../../favicon/apple-icon-180x180.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="../../favicon/android-icon-192x192.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="../../favicon/favicon-96x96.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon/favicon-16x16.png" />
+  <link rel="manifest" href="../../favicon/manifest.json" />
   <meta name="msapplication-TileColor" content="#0b4168" />
-  <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png" />
+  <meta name="msapplication-TileImage" content="../../favicon/ms-icon-144x144.png" />
   <meta name="theme-color" content="#0b4168" />
 
   <style>
+    body {
+      width: 100vw;
+      height: 100vh;
+    }
+
+    h1 {
+      margin-top: 0;
+      padding-top: 20px;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+      background: rgba(0, 0, 0, 0.05);
+      border-radius: 20px;
+    }
+
+    li {
+      border: none;
+    }
+
+    li:hover {
+      background: none;
+    }
+
+    .wrapper {
+      margin: 0 auto;
+      max-width: 500px;
+      font-size: 20px;
+      line-height: 2;
+      position: relative;
+    }
+
+    .highlight {
+      transition: all 0.2s;
+      border-bottom: 1px solid #222;
+      background: #9e403c;
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      z-index: -1;
+      display: block;
+    }
   </style>
 </head>
 
 <body>
-  <main id="day-16-wrap">
-    <h1>Day 16 - Mouse Shadow</h1>
+  <main id="day-22-wrap">
+    <h1>Day 22 - Link Highlighter</h1>
+
+    <nav>
+      <ul class="menu">
+        <li><a href="">Home</a></li>
+        <li><a href="">Order Status</a></li>
+        <li><a href="">Tweets</a></li>
+        <li><a href="">Read Our History</a></li>
+        <li><a href="">Contact Us</a></li>
+      </ul>
+    </nav>
+
+    <div class="wrapper">
+      <p>Lorem ipsum dolor sit amet, <a href="">consectetur</a> adipisicing elit. Est <a href="">explicabo</a> unde
+        natus
+        necessitatibus esse obcaecati distinctio, aut itaque, qui vitae!</p>
+      <p>Aspernatur sapiente quae sint <a href="">soluta</a> modi, atque praesentium laborum pariatur earum <a href="">quaerat</a>
+        cupiditate consequuntur facilis ullam dignissimos, aperiam quam veniam.</p>
+      <p>Cum ipsam quod, incidunt sit ex <a href="">tempore</a> placeat maxime <a href="">corrupti</a> possimus <a href="">veritatis</a>
+        ipsum fugit recusandae est doloremque? Hic, <a href="">quibusdam</a>, nulla.</p>
+      <p>Esse quibusdam, ad, ducimus cupiditate <a href="">nulla</a>, quae magni odit <a href="">totam</a> ut
+        consequatur
+        eveniet sunt quam provident sapiente dicta neque quod.</p>
+      <p>Aliquam <a href="">dicta</a> sequi culpa fugiat <a href="">consequuntur</a> pariatur optio ad minima, maxime
+        <a href="">odio</a>, distinctio magni impedit tempore enim repellendus <a href="">repudiandae</a> quas!</p>
+    </div>
 
     <div class="home-link"><a href="../../index.html">Go Back Home</a></div>
   </main>
 
   <script>
+    const triggers = document.querySelectorAll('a');
+    const highlight = document.createElement('span');
+    highlight.classList.add('highlight');
+    document.body.appendChild(highlight);
+
+    function highlightLink() {
+      const linkCoords = this.getBoundingClientRect();
+      const coords = {
+        width: linkCoords.width + 10,
+        height: linkCoords.height + 10,
+        top: linkCoords.top + window.scrollY,
+        left: linkCoords.left + window.scrollX
+      };
+      highlight.style.width = `${coords.width}px`;
+      highlight.style.height = `${coords.height}px`;
+      highlight.style.transform = `translate(${coords.left}px, ${coords.top}px)`;
+    }
+    triggers.forEach(a => a.addEventListener('mouseenter', highlightLink));
   </script>
 
 </body>

@@ -10,36 +10,76 @@
   <link rel="stylesheet" href="../../style.css" />
   <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:300" rel="stylesheet" />
 
-  <link rel="apple-touch-icon" sizes="57x57" href="./favicon/apple-icon-57x57.png" />
-  <link rel="apple-touch-icon" sizes="60x60" href="./favicon/apple-icon-60x60.png" />
-  <link rel="apple-touch-icon" sizes="72x72" href="./favicon/apple-icon-72x72.png" />
-  <link rel="apple-touch-icon" sizes="76x76" href="./favicon/apple-icon-76x76.png" />
-  <link rel="apple-touch-icon" sizes="114x114" href="./favicon/apple-icon-114x114.png" />
-  <link rel="apple-touch-icon" sizes="120x120" href="./favicon/apple-icon-120x120.png" />
-  <link rel="apple-touch-icon" sizes="144x144" href="./favicon/apple-icon-144x144.png" />
-  <link rel="apple-touch-icon" sizes="62x152" href="./favicon/apple-icon-152x152.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-icon-180x180.png" />
-  <link rel="icon" type="image/png" sizes="192x192" href="./favicon/android-icon-192x192.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="96x96" href="./favicon/favicon-96x96.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png" />
-  <link rel="manifest" href="./favicon/manifest.json" />
+  <link rel="apple-touch-icon" sizes="57x57" href="../../favicon/apple-icon-57x57.png" />
+  <link rel="apple-touch-icon" sizes="60x60" href="../../favicon/apple-icon-60x60.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="../../favicon/apple-icon-72x72.png" />
+  <link rel="apple-touch-icon" sizes="76x76" href="../../favicon/apple-icon-76x76.png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="../../favicon/apple-icon-114x114.png" />
+  <link rel="apple-touch-icon" sizes="120x120" href="../../favicon/apple-icon-120x120.png" />
+  <link rel="apple-touch-icon" sizes="144x144" href="../../favicon/apple-icon-144x144.png" />
+  <link rel="apple-touch-icon" sizes="152x152" href="../../favicon/apple-icon-152x152.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../../favicon/apple-icon-180x180.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="../../favicon/android-icon-192x192.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="../../favicon/favicon-96x96.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon/favicon-16x16.png" />
+  <link rel="manifest" href="../../favicon/manifest.json" />
   <meta name="msapplication-TileColor" content="#0b4168" />
-  <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png" />
+  <meta name="msapplication-TileImage" content="../../favicon/ms-icon-144x144.png" />
   <meta name="theme-color" content="#0b4168" />
 
   <style>
+    h1 {
+      margin-top: 0;
+      padding-top: 20px;
+    }
+
+    h2 {
+      font-size: 3em;
+    }
+
+    .hero {
+      padding: 20vh 0;
+    }
   </style>
+
 </head>
 
 <body>
   <main id="day-16-wrap">
     <h1>Day 16 - Mouse Shadow</h1>
 
+    <div class="hero">
+      <h2 contenteditable>LIGHT SHOW</h2>
+    </div>
+
     <div class="home-link"><a href="../../index.html">Go Back Home</a></div>
   </main>
 
   <script>
+    const hero = document.querySelector('.hero');
+    const text = hero.querySelector('h2');
+    const walk = 200;
+
+    function shadow(e) {
+      const width = hero.offsetWidth;
+      const height = hero.offsetHeight;
+      let x = e.offsetX;
+      let y = e.offsetY;
+
+      if (this !== e.target) {
+        x = x + e.target.offsetLeft;
+        y = y + e.target.offsetTop;
+      }
+      const xWalk = Math.round((x / width * walk) - (walk / 2));
+      const yWalk = Math.round((y / height * walk) - (walk / 2));
+
+      text.style.textShadow = xWalk + 'px ' + yWalk + 'px 0 rgba(255,0,255,0.7), ' + (-xWalk) + 'px ' + yWalk +
+        'px 0 rgba(0,255,255,0.7), ' + yWalk + 'px ' + (-xWalk) + 'px 0 rgba(0,255,0,0.7), ' + (-yWalk) + 'px ' + xWalk +
+        'px 0 rgba(0,0,255,0.7)';
+    }
+
+    window.addEventListener('mousemove', shadow);
   </script>
 
 </body>
