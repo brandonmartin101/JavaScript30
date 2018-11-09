@@ -1,0 +1,273 @@
+body {
+  max-width: none;
+  height: 100vh;
+  padding: 0 20px;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin-top: 0;
+  padding-top: 30px;
+}
+
+p {
+  margin: 20vh 0;
+  font-size: 1.5em;
+}
+
+small {
+  font-size: 0.5em;
+}
+
+/******************************** Password ******************************/
+body.password {
+  animation: password 5s ease infinite;
+  background: #ededed;
+}
+
+@keyframes password {
+
+  0%,
+  100% {
+    filter: invert(0);
+  }
+
+  50% {
+    filter: invert(1);
+  }
+}
+
+/******************************* Sesame ********************************/
+body.sesame {
+  animation: sesame 5s ease infinite;
+}
+
+@keyframes sesame {
+
+  0%,
+  40%,
+  60%,
+  100% {
+    filter: blur(0);
+  }
+
+  20%,
+  80% {
+    filter: blur(5px);
+  }
+}
+
+/******************************** Rainbow *******************************/
+body.rainbow {
+  background: linear-gradient(to right, red, orange, yellow, green, cyan, blue, violet);
+  background-size: 1800% 1800%;
+  animation: rainbow 18s ease infinite;
+}
+
+@keyframes rainbow {
+
+  0%,
+  100% {
+    background-position: 0% 82%;
+  }
+
+  50% {
+    background-position: 100% 19%;
+  }
+}
+
+/********************************* Glitch ********************************/
+body.glitch #konami {
+  position: relative;
+}
+
+body.glitch #konami:before,
+body.glitch #konami:after {
+  content: 'Konami';
+  position: absolute;
+  top: 0;
+  overflow: hidden;
+  clip: rect(0, 900px, 0, 0);
+}
+
+body.glitch #konami:before {
+  left: -2px;
+  animation: noise-anim 2s infinite linear alternate-reverse;
+}
+
+body.glitch #konami:after {
+  left: 2px;
+  animation: noise-anim 2s infinite linear alternate-reverse;
+}
+
+@keyframes noise-anim {
+  0% {
+    clip: rect(86px, 9999px, 61px, 0);
+  }
+
+  5% {
+    clip: rect(64px, 9999px, 89px, 0);
+  }
+
+  10% {
+    clip: rect(13px, 9999px, 11px, 0);
+  }
+
+  15% {
+    clip: rect(19px, 9999px, 45px, 0);
+  }
+
+  20% {
+    clip: rect(30px, 9999px, 52px, 0);
+  }
+
+  25% {
+    clip: rect(52px, 9999px, 14px, 0);
+  }
+
+  30% {
+    clip: rect(40px, 9999px, 86px, 0);
+  }
+
+  35% {
+    clip: rect(83px, 9999px, 33px, 0);
+  }
+
+  40% {
+    clip: rect(42px, 9999px, 29px, 0);
+  }
+
+  45% {
+    clip: rect(83px, 9999px, 69px, 0);
+  }
+
+  50% {
+    clip: rect(13px, 9999px, 55px, 0);
+  }
+
+  55% {
+    clip: rect(37px, 9999px, 95px, 0);
+  }
+
+  60% {
+    clip: rect(30px, 9999px, 98px, 0);
+  }
+
+  65% {
+    clip: rect(67px, 9999px, 73px, 0);
+  }
+
+  70% {
+    clip: rect(83px, 9999px, 34px, 0);
+  }
+
+  75% {
+    clip: rect(44px, 9999px, 57px, 0);
+  }
+
+  80% {
+    clip: rect(41px, 9999px, 48px, 0);
+  }
+
+  85% {
+    clip: rect(84px, 9999px, 7px, 0);
+  }
+
+  90% {
+    clip: rect(27px, 9999px, 43px, 0);
+  }
+
+  95% {
+    clip: rect(3px, 9999px, 69px, 0);
+  }
+
+  100% {
+    clip: rect(93px, 9999px, 76px, 0);
+  }
+}
+
+@keyframes noise-anim-2 {
+  0% {
+    clip: rect(51px, 9999px, 10px, 0);
+  }
+
+  5% {
+    clip: rect(41px, 9999px, 73px, 0);
+  }
+
+  10% {
+    clip: rect(40px, 9999px, 66px, 0);
+  }
+
+  15% {
+    clip: rect(76px, 9999px, 30px, 0);
+  }
+
+  20% {
+    clip: rect(75px, 9999px, 13px, 0);
+  }
+
+  25% {
+    clip: rect(38px, 9999px, 4px, 0);
+  }
+
+  30% {
+    clip: rect(47px, 9999px, 59px, 0);
+  }
+
+  35% {
+    clip: rect(9px, 9999px, 10px, 0);
+  }
+
+  40% {
+    clip: rect(6px, 9999px, 77px, 0);
+  }
+
+  45% {
+    clip: rect(93px, 9999px, 84px, 0);
+  }
+
+  50% {
+    clip: rect(88px, 9999px, 50px, 0);
+  }
+
+  55% {
+    clip: rect(77px, 9999px, 84px, 0);
+  }
+
+  60% {
+    clip: rect(85px, 9999px, 74px, 0);
+  }
+
+  65% {
+    clip: rect(47px, 9999px, 35px, 0);
+  }
+
+  70% {
+    clip: rect(48px, 9999px, 43px, 0);
+  }
+
+  75% {
+    clip: rect(67px, 9999px, 1px, 0);
+  }
+
+  80% {
+    clip: rect(89px, 9999px, 15px, 0);
+  }
+
+  85% {
+    clip: rect(82px, 9999px, 83px, 0);
+  }
+
+  90% {
+    clip: rect(11px, 9999px, 76px, 0);
+  }
+
+  95% {
+    clip: rect(35px, 9999px, 100px, 0);
+  }
+
+  100% {
+    clip: rect(8px, 9999px, 19px, 0);
+  }
+}
