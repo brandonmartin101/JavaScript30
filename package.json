@@ -1,0 +1,20 @@
+{
+  "name": "javascript30",
+  "version": "0.0.1",
+  "description": "Static site for JavaScript 30 projects",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brandonmartin101/javascript30"
+  },
+  "keywords": [],
+  "author": "Brandon Martin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brandonmartin101/javascript30/issues"
+  },
+  "homepage": "https://javascript30.brandonpmartin.com"
+}
